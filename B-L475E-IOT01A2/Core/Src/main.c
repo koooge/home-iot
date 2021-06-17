@@ -18,12 +18,16 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
-#include <stdio.h>
+
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
 
+#include "stm32l475e_iot01.h"
+#include "stm32l475e_iot01_tsensor.h"
+#include <math.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,7 +59,12 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 /* USER CODE BEGIN PV */
-
+/* Private variables -------------------------------------------------------*/
+float temp_value = 0;  // Measured temperature value
+char str_tmp[100] = ""; // Formatted message to display the temperature value
+uint8_t msg1[] = "****** Temperature values measurement ******\n\n\r";
+uint8_t msg2[] = "=====> Initialize Temperature sensor HTS221 \r\n";
+uint8_t msg3[] = "=====> Temperature sensor HTS221 initialized \r\n ";
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -82,8 +91,6 @@ int _write(int file, char *ptr, int len)
     ITM_SendChar((*ptr++));
   return len;
 }
-
-uint8_t readValue = 0;
 /* USER CODE END 0 */
 
 /**
@@ -122,7 +129,10 @@ int main(void)
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_UART_Transmit(&huart1,msg1,sizeof(msg1),1000);
+  HAL_UART_Transmit(&huart1,msg2,sizeof(msg2),1000);
+  BSP_TSENSOR_Init();
+  HAL_UART_Transmit(&huart1,msg3,sizeof(msg3),1000);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -133,9 +143,16 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-    readValue = HAL_GPIO_ReadPin(HTS221_DRDY_EXTI15_GPIO_Port, HTS221_DRDY_EXTI15_Pin);
-    printf("readValue = %d\r\n", readValue);
-    HAL_Delay(1000UL);
+
+
+    temp_value = BSP_TSENSOR_ReadTemp();
+    int tmpInt1 = temp_value;
+    float tmpFrac = temp_value - tmpInt1;
+    int tmpInt2 = trunc(tmpFrac * 100);
+//    snprintf(str_tmp,100," TEMPERATURE = %d.%02d\n\r", tmpInt1, tmpInt2);
+//    HAL_UART_Transmit(&huart1,( uint8_t * )str_tmp,sizeof(str_tmp),1000);
+    printf(" TEMPERATURE = %d.%02d\n", tmpInt1, tmpInt2);
+    HAL_Delay(1000);
   }
   /* USER CODE END 3 */
 }
