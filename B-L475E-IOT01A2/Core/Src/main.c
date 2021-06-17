@@ -18,6 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <stdio.h>
 #include "main.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -73,7 +74,16 @@ static void MX_USB_OTG_FS_PCD_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+int _write(int file, char *ptr, int len)
+{
+  /* Implement your write code here, this is used by puts and printf for example */
+  int i=0;
+  for(i=0 ; i<len ; i++)
+    ITM_SendChar((*ptr++));
+  return len;
+}
 
+uint8_t readValue = 0;
 /* USER CODE END 0 */
 
 /**
@@ -123,7 +133,9 @@ int main(void)
 
     /* USER CODE BEGIN 3 */
     HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-    HAL_Delay(500UL);
+    readValue = HAL_GPIO_ReadPin(HTS221_DRDY_EXTI15_GPIO_Port, HTS221_DRDY_EXTI15_Pin);
+    printf("readValue = %d\r\n", readValue);
+    HAL_Delay(1000UL);
   }
   /* USER CODE END 3 */
 }
