@@ -27,6 +27,7 @@
 
 #include "stm32l475e_iot01.h"
 #include "stm32l475e_iot01_tsensor.h"
+#include "stm32l475e_iot01_hsensor.h"
 #include <math.h>
 /* USER CODE END Includes */
 
@@ -129,10 +130,14 @@ int main(void)
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
+  // HTS221 Temperature
   HAL_UART_Transmit(&huart1,msg1,sizeof(msg1),1000);
   HAL_UART_Transmit(&huart1,msg2,sizeof(msg2),1000);
   BSP_TSENSOR_Init();
   HAL_UART_Transmit(&huart1,msg3,sizeof(msg3),1000);
+
+  // HTS221 Humidity
+  BSP_HSENSOR_Init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -142,16 +147,26 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    // LED2
     HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
 
+    // HTS221 Temperature
+     temp_value = BSP_TSENSOR_ReadTemp();
+    // int tmpInt1 = temp_value;
+    // float tmpFrac = temp_value - tmpInt1;
+    // int tmpInt2 = trunc(tmpFrac * 100);
+    // printf("TEMPERATURE = %d.%02d\n", tmpInt1, tmpInt2);
+//    snprintf(str_tmp,100," TEMPERATURE = %d.%02d\n\r", tmpInt1, tmpInt2);
+//    HAL_UART_Transmit(&huart1,( uint8_t * )str_tmp,sizeof(str_tmp),1000);
 
-    temp_value = BSP_TSENSOR_ReadTemp();
+
+    // HTS221 Humidity
+    temp_value = BSP_HSENSOR_ReadHumidity();
     int tmpInt1 = temp_value;
     float tmpFrac = temp_value - tmpInt1;
     int tmpInt2 = trunc(tmpFrac * 100);
-//    snprintf(str_tmp,100," TEMPERATURE = %d.%02d\n\r", tmpInt1, tmpInt2);
-//    HAL_UART_Transmit(&huart1,( uint8_t * )str_tmp,sizeof(str_tmp),1000);
-    printf(" TEMPERATURE = %d.%02d\n", tmpInt1, tmpInt2);
+    printf("HUMIDITY = %d.%02d\n", tmpInt1, tmpInt2);
+
     HAL_Delay(1000);
   }
   /* USER CODE END 3 */
