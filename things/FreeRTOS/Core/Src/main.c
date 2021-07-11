@@ -55,7 +55,7 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_FS;
 
 osThreadId defaultTaskHandle;
-osThreadId myTask02Handle;
+osThreadId humidityTaskHandle;
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -71,7 +71,7 @@ static void MX_USART1_UART_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 void StartDefaultTask(void const * argument);
-void StartTask02(void const * argument);
+void StartHumidityTask(void const * argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -142,9 +142,9 @@ int main(void)
   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  /* definition and creation of myTask02 */
-  osThreadDef(myTask02, StartTask02, osPriorityIdle, 0, 128);
-  myTask02Handle = osThreadCreate(osThread(myTask02), NULL);
+  /* definition and creation of humidityTask */
+  osThreadDef(humidityTask, StartHumidityTask, osPriorityIdle, 0, 128);
+  humidityTaskHandle = osThreadCreate(osThread(humidityTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -296,7 +296,7 @@ static void MX_I2C2_Init(void)
 
   /* USER CODE END I2C2_Init 1 */
   hi2c2.Instance = I2C2;
-  hi2c2.Init.Timing = 0x00000E14;
+  hi2c2.Init.Timing = 0x10909CEC;
   hi2c2.Init.OwnAddress1 = 0;
   hi2c2.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   hi2c2.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
@@ -706,30 +706,28 @@ void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
-  for(;;)
-  {
-    osDelay(1);
+  for(;;) {
+	HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+    HAL_Delay(1000);
   }
   /* USER CODE END 5 */
 }
 
-/* USER CODE BEGIN Header_StartTask02 */
+/* USER CODE BEGIN Header_StartHumidityTask */
 /**
-* @brief Function implementing the myTask02 thread.
+* @brief Function implementing the humidityTask thread.
 * @param argument: Not used
 * @retval None
 */
-/* USER CODE END Header_StartTask02 */
-void StartTask02(void const * argument)
+/* USER CODE END Header_StartHumidityTask */
+void StartHumidityTask(void const * argument)
 {
-  /* USER CODE BEGIN StartTask02 */
+  /* USER CODE BEGIN StartHumidityTask */
   /* Infinite loop */
-  for(;;)
-  {
-	HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
-	osDelay(500);
+  for(;;) {
+    HAL_Delay(1000);
   }
-  /* USER CODE END StartTask02 */
+  /* USER CODE END StartHumidityTask */
 }
 
  /**
