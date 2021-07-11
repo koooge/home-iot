@@ -21,6 +21,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 
+#define HTTP_DO_NOT_USE_CUSTOM_CONFIG
 #include "core_http_client.h"
 
 /* Private includes ----------------------------------------------------------*/
