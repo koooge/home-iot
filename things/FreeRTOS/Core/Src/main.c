@@ -21,6 +21,8 @@
 #include "main.h"
 #include "cmsis_os.h"
 
+#include "core_http_client.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
