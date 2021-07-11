@@ -151,7 +151,7 @@ int main(void)
     HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
 
     // HTS221 Temperature
-     temp_value = BSP_TSENSOR_ReadTemp();
+    //  temp_value = BSP_TSENSOR_ReadTemp();
     // int tmpInt1 = temp_value;
     // float tmpFrac = temp_value - tmpInt1;
     // int tmpInt2 = trunc(tmpFrac * 100);
