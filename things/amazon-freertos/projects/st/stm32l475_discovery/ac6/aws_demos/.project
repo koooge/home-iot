@@ -297,161 +297,6 @@
 			<locationURI>AWS_IOT_MCU_ROOT/vendors/st/boards/stm32l475_discovery/aws_demos/application_code/st_code/vl53l0x_proximity.h</locationURI>
 		</link>
 		<link>
-			<name>demos/cli/cli_uart_demo.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/cli/cli_uart_demo.c</locationURI>
-		</link>
-		<link>
-			<name>demos/coreHTTP/http_demo_mutual_auth.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/coreHTTP/http_demo_mutual_auth.c</locationURI>
-		</link>
-		<link>
-			<name>demos/coreHTTP/http_demo_s3_download.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/coreHTTP/http_demo_s3_download.c</locationURI>
-		</link>
-		<link>
-			<name>demos/coreHTTP/http_demo_s3_download_multithreaded.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/coreHTTP/http_demo_s3_download_multithreaded.c</locationURI>
-		</link>
-		<link>
-			<name>demos/coreHTTP/http_demo_s3_upload.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/coreHTTP/http_demo_s3_upload.c</locationURI>
-		</link>
-		<link>
-			<name>demos/coreMQTT/mqtt_demo_mutual_auth.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/coreMQTT/mqtt_demo_mutual_auth.c</locationURI>
-		</link>
-		<link>
-			<name>demos/coreMQTT_Agent/mqtt_agent_task.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/coreMQTT_Agent/mqtt_agent_task.c</locationURI>
-		</link>
-		<link>
-			<name>demos/coreMQTT_Agent/simple_sub_pub_demo.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/coreMQTT_Agent/simple_sub_pub_demo.c</locationURI>
-		</link>
-		<link>
-			<name>demos/coreMQTT_Agent/subscription_manager.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/coreMQTT_Agent/subscription_manager.c</locationURI>
-		</link>
-		<link>
-			<name>demos/coreMQTT_Agent/subscription_manager.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/coreMQTT_Agent/subscription_manager.h</locationURI>
-		</link>
-		<link>
-			<name>demos/demo_runner/aws_demo.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/demo_runner/aws_demo.c</locationURI>
-		</link>
-		<link>
-			<name>demos/demo_runner/iot_demo_freertos.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/demo_runner/iot_demo_freertos.c</locationURI>
-		</link>
-		<link>
-			<name>demos/demo_runner/iot_demo_runner.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/demo_runner/iot_demo_runner.c</locationURI>
-		</link>
-		<link>
-			<name>demos/device_defender_for_aws/defender_demo.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/device_defender_for_aws/defender_demo.c</locationURI>
-		</link>
-		<link>
-			<name>demos/device_defender_for_aws/metrics_collector.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/device_defender_for_aws/metrics_collector.h</locationURI>
-		</link>
-		<link>
-			<name>demos/device_defender_for_aws/report_builder.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/device_defender_for_aws/report_builder.c</locationURI>
-		</link>
-		<link>
-			<name>demos/device_defender_for_aws/report_builder.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/device_defender_for_aws/report_builder.h</locationURI>
-		</link>
-		<link>
-			<name>demos/device_shadow_for_aws/shadow_demo_main.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/device_shadow_for_aws/shadow_demo_main.c</locationURI>
-		</link>
-		<link>
-			<name>demos/greengrass_connectivity/aws_greengrass_discovery_demo.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/greengrass_connectivity/aws_greengrass_discovery_demo.c</locationURI>
-		</link>
-		<link>
-			<name>demos/include/aws_clientcredential.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/include/aws_clientcredential.h</locationURI>
-		</link>
-		<link>
-			<name>demos/include/aws_clientcredential_keys.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/include/aws_clientcredential_keys.h</locationURI>
-		</link>
-		<link>
-			<name>demos/include/aws_demo.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/include/aws_demo.h</locationURI>
-		</link>
-		<link>
-			<name>demos/include/aws_iot_metrics.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/include/aws_iot_metrics.h</locationURI>
-		</link>
-		<link>
-			<name>demos/include/iot_config_common.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/include/iot_config_common.h</locationURI>
-		</link>
-		<link>
-			<name>demos/include/iot_demo_logging.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/include/iot_demo_logging.h</locationURI>
-		</link>
-		<link>
-			<name>demos/include/iot_demo_runner.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/include/iot_demo_runner.h</locationURI>
-		</link>
-		<link>
-			<name>demos/jobs_for_aws/jobs_demo.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/jobs_for_aws/jobs_demo.c</locationURI>
-		</link>
-		<link>
-			<name>demos/network_manager/aws_iot_network_manager.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/network_manager/aws_iot_network_manager.c</locationURI>
-		</link>
-		<link>
-			<name>demos/network_manager/iot_network_manager_private.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/network_manager/iot_network_manager_private.h</locationURI>
-		</link>
-		<link>
-			<name>demos/tcp/aws_tcp_echo_client_single_task.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/tcp/aws_tcp_echo_client_single_task.c</locationURI>
-		</link>
-		<link>
-			<name>demos/tcp/aws_tcp_echo_client_single_tasks.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/tcp/aws_tcp_echo_client_single_tasks.h</locationURI>
-		</link>
-		<link>
 			<name>freertos_kernel/include/FreeRTOS.h</name>
 			<type>1</type>
 			<locationURI>AWS_IOT_MCU_ROOT/freertos_kernel/include/FreeRTOS.h</locationURI>
@@ -550,31 +395,6 @@
 			<name>libraries/logging/iot_logging_task_dynamic_buffers.c</name>
 			<type>1</type>
 			<locationURI>AWS_IOT_MCU_ROOT/libraries/logging/iot_logging_task_dynamic_buffers.c</locationURI>
-		</link>
-		<link>
-			<name>demos/common/http_demo_helpers/http_demo_utils.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/common/http_demo_helpers/http_demo_utils.c</locationURI>
-		</link>
-		<link>
-			<name>demos/common/mqtt_demo_helpers/mqtt_demo_helpers.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/common/mqtt_demo_helpers/mqtt_demo_helpers.c</locationURI>
-		</link>
-		<link>
-			<name>demos/common/pkcs11_helpers/pkcs11_helpers.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/common/pkcs11_helpers/pkcs11_helpers.c</locationURI>
-		</link>
-		<link>
-			<name>demos/dev_mode_key_provisioning/include/aws_dev_mode_key_provisioning.h</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/dev_mode_key_provisioning/include/aws_dev_mode_key_provisioning.h</locationURI>
-		</link>
-		<link>
-			<name>demos/dev_mode_key_provisioning/src/aws_dev_mode_key_provisioning.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/dev_mode_key_provisioning/src/aws_dev_mode_key_provisioning.c</locationURI>
 		</link>
 		<link>
 			<name>freertos_kernel/portable/MemMang/heap_5.c</name>
@@ -700,11 +520,6 @@
 			<name>libraries/logging/include/logging_stack.h</name>
 			<type>1</type>
 			<locationURI>AWS_IOT_MCU_ROOT/libraries/logging/include/logging_stack.h</locationURI>
-		</link>
-		<link>
-			<name>demos/device_defender_for_aws/metrics_collector/stub/metrics_collector.c</name>
-			<type>1</type>
-			<locationURI>AWS_IOT_MCU_ROOT/demos/device_defender_for_aws/metrics_collector/stub/metrics_collector.c</locationURI>
 		</link>
 		<link>
 			<name>freertos_kernel/portable/GCC/ARM_CM4F/port.c</name>

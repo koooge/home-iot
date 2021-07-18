@@ -42,12 +42,12 @@
 #include "task.h"
 
 /* Demo includes */
-#include "aws_demo.h"
+// #include "aws_demo.h"
 #include "iot_system_init.h"
 #include "iot_logging_task.h"
 #include "iot_wifi.h"
-#include "aws_clientcredential.h"
-#include "aws_dev_mode_key_provisioning.h"
+ #include "aws_clientcredential.h"
+// #include "aws_dev_mode_key_provisioning.h"
 #include "iot_uart.h"
 
 /* WiFi driver includes. */
@@ -160,7 +160,7 @@ void vApplicationDaemonTaskStartupHook( void )
         /* A simple example to demonstrate key and certificate provisioning in
          * microcontroller flash using PKCS#11 interface. This should be replaced
          * by production ready key provisioning mechanism. */
-        vDevModeKeyProvisioning();
+//        vDevModeKeyProvisioning();
 
         if( SYSTEM_Init() == pdPASS )
         {
@@ -170,7 +170,7 @@ void vApplicationDaemonTaskStartupHook( void )
             #endif /* USE_OFFLOAD_SSL */
 
             /* Start demos. */
-            DEMO_RUNNER_RunDemos();
+//            DEMO_RUNNER_RunDemos();
         }
     }
     else
@@ -448,6 +448,32 @@ void Error_Handler( void )
 
 /*-----------------------------------------------------------*/
 
+void vApplicationMallocFailedHook()
+{
+    configPRINT_STRING( ( "ERROR: Malloc failed to allocate memory\r\n" ) );
+    taskDISABLE_INTERRUPTS();
+
+    /* Loop forever */
+    for( ; ; )
+    {
+    }
+}
+
+void vApplicationStackOverflowHook( TaskHandle_t xTask,
+                                    char * pcTaskName )
+{
+    configPRINT_STRING( ( "ERROR: stack overflow\r\n" ) );
+    portDISABLE_INTERRUPTS();
+
+    /* Unused Parameters */
+    ( void ) xTask;
+    ( void ) pcTaskName;
+
+    /* Loop forever */
+    for( ; ; )
+    {
+    }
+}
 void vApplicationIdleHook( void )
 {
 }
