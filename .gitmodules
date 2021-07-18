@@ -1,3 +1,0 @@
-[submodule "things/FreeRTOS/libraries/coreHTTP"]
-	path = things/FreeRTOS/libraries/coreHTTP
-	url = https://github.com/FreeRTOS/coreHTTP.git
