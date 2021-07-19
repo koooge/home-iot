@@ -78,9 +78,6 @@ enum
 
 /* Exported functions --------------------------------------------------------*/
 void Error_Handler( void );
-uint8_t Button_WaitForPush( uint32_t timeout );
-void Led_On( void );
-void Led_Off( void );
 
 extern RTC_HandleTypeDef xHrtc;
 extern RNG_HandleTypeDef xHrng;

@@ -139,6 +139,12 @@ int main( void )
      * startup hook. */
     vTaskStartScheduler();
 
+    while (1)
+    {
+      HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+      HAL_Delay(2000);
+    }
+
     return 0;
 }
 /*-----------------------------------------------------------*/
