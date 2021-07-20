@@ -23,9 +23,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <stdio.h>
+#include <math.h>
+
 #include "stm32l475e_iot01.h"
 #include "stm32l475e_iot01_hsensor.h"
-#include <math.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -71,7 +73,7 @@ const osThreadAttr_t humidityTask_attributes = {
   .priority = (osPriority_t) osPriorityLow,
 };
 /* USER CODE BEGIN PV */
-
+float temp_value = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -93,7 +95,14 @@ void StartHumidityTask(void *argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+int _write(int file, char *ptr, int len)
+{
+  /* Implement your write code here, this is used by puts and printf for example */
+  int i=0;
+  for(i=0 ; i<len ; i++)
+    ITM_SendChar((*ptr++));
+  return len;
+}
 /* USER CODE END 0 */
 
 /**
@@ -132,7 +141,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   /* USER CODE BEGIN 2 */
-
+  BSP_HSENSOR_Init();
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -725,6 +734,12 @@ void StartHumidityTask(void *argument)
   for(;;)
   {
     HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+
+    temp_value = BSP_HSENSOR_ReadHumidity();
+    int tmpInt1 = temp_value;
+    float tmpFrac = temp_value - tmpInt1;
+    int tmpInt2 = trunc(tmpFrac * 100);
+    printf("HUMIDITY = %d.%02d\n", tmpInt1, tmpInt2);
 
     HAL_Delay(2000);
   }
