@@ -63,6 +63,13 @@ const osThreadAttr_t defaultTask_attributes = {
   .stack_size = 128 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for humidityTask */
+osThreadId_t humidityTaskHandle;
+const osThreadAttr_t humidityTask_attributes = {
+  .name = "humidityTask",
+  .stack_size = 128 * 4,
+  .priority = (osPriority_t) osPriorityLow,
+};
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -78,6 +85,7 @@ static void MX_USART1_UART_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_USB_OTG_FS_PCD_Init(void);
 void StartDefaultTask(void *argument);
+void StartHumidityTask(void *argument);
 
 /* USER CODE BEGIN PFP */
 
@@ -149,6 +157,9 @@ int main(void)
   /* Create the thread(s) */
   /* creation of defaultTask */
   defaultTaskHandle = osThreadNew(StartDefaultTask, NULL, &defaultTask_attributes);
+
+  /* creation of humidityTask */
+  humidityTaskHandle = osThreadNew(StartHumidityTask, NULL, &humidityTask_attributes);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -698,6 +709,26 @@ void StartDefaultTask(void *argument)
     osDelay(1);
   }
   /* USER CODE END 5 */
+}
+
+/* USER CODE BEGIN Header_StartHumidityTask */
+/**
+* @brief Function implementing the humidityTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_StartHumidityTask */
+void StartHumidityTask(void *argument)
+{
+  /* USER CODE BEGIN StartHumidityTask */
+  /* Infinite loop */
+  for(;;)
+  {
+    HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);
+
+    HAL_Delay(2000);
+  }
+  /* USER CODE END StartHumidityTask */
 }
 
 /**
