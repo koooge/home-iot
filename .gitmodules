@@ -1,3 +1,6 @@
 [submodule "things/FreeRTOS/Libraries/coreHTTP"]
 	path = things/FreeRTOS/Libraries/coreHTTP
 	url = https://github.com/FreeRTOS/coreHTTP.git
+[submodule "things/FreeRTOS/Libraries/mbedtls"]
+	path = things/FreeRTOS/Libraries/mbedtls
+	url = https://github.com/ARMmbed/mbedtls.git
